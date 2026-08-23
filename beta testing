@@ -26,10 +26,9 @@ bgGradient.Color = ColorSequence.new({
 	ColorSequenceKeypoint.new(0.5, Color3.fromRGB(18, 10, 32)),
 	ColorSequenceKeypoint.new(1, Color3.fromRGB(5, 10, 25))
 })
-bgGradient.Rotation = 0
 bgGradient.Parent = background
 
--- Animated background
+-- Moving background
 task.spawn(function()
 	while gui.Parent do
 		local tween = TweenService:Create(
@@ -97,10 +96,7 @@ titleStroke.Thickness = 1.5
 titleStroke.Transparency = 0.4
 titleStroke.Parent = title
 
---==================================================
--- SUBTITLE
---==================================================
-
+-- Subtitle
 local subtitle = Instance.new("TextLabel")
 subtitle.Size = UDim2.fromScale(0.7, 0.05)
 subtitle.Position = UDim2.fromScale(0.15, 0.395)
@@ -111,10 +107,7 @@ subtitle.TextScaled = true
 subtitle.Font = Enum.Font.Gotham
 subtitle.Parent = background
 
---==================================================
--- VERSION
---==================================================
-
+-- Version
 local version = Instance.new("TextLabel")
 version.Size = UDim2.fromScale(0.4, 0.035)
 version.Position = UDim2.fromScale(0.3, 0.445)
@@ -125,10 +118,7 @@ version.TextScaled = true
 version.Font = Enum.Font.GothamMedium
 version.Parent = background
 
---==================================================
--- STATUS
---==================================================
-
+-- Status
 local status = Instance.new("TextLabel")
 status.Size = UDim2.fromScale(0.6, 0.04)
 status.Position = UDim2.fromScale(0.2, 0.51)
@@ -139,10 +129,7 @@ status.TextScaled = true
 status.Font = Enum.Font.Gotham
 status.Parent = background
 
---==================================================
--- PERCENTAGE
---==================================================
-
+-- Percentage
 local percent = Instance.new("TextLabel")
 percent.Size = UDim2.fromScale(0.6, 0.06)
 percent.Position = UDim2.fromScale(0.2, 0.55)
@@ -178,7 +165,6 @@ local barCorner2 = Instance.new("UICorner")
 barCorner2.CornerRadius = UDim.new(1, 0)
 barCorner2.Parent = bar
 
--- Purple → Blue gradient
 local barGradient = Instance.new("UIGradient")
 barGradient.Color = ColorSequence.new({
 	ColorSequenceKeypoint.new(0, Color3.fromRGB(180, 70, 255)),
@@ -212,7 +198,6 @@ task.spawn(function()
 
 		tween:Play()
 		tween.Completed:Wait()
-
 		task.wait(0.2)
 	end
 end)
@@ -229,18 +214,12 @@ local particleColors = {
 
 for i = 1, 35 do
 	local particle = Instance.new("Frame")
-
 	local size = math.random(2, 5)
 
 	particle.Size = UDim2.fromOffset(size, size)
-	particle.Position = UDim2.fromScale(
-		math.random(),
-		math.random()
-	)
-
+	particle.Position = UDim2.fromScale(math.random(), math.random())
 	particle.BackgroundColor3 =
 		particleColors[math.random(1, #particleColors)]
-
 	particle.BackgroundTransparency = math.random(45, 85) / 100
 	particle.BorderSizePixel = 0
 	particle.Parent = background
@@ -251,11 +230,6 @@ for i = 1, 35 do
 
 	task.spawn(function()
 		while gui.Parent do
-			local target = UDim2.fromScale(
-				math.random(),
-				math.random()
-			)
-
 			TweenService:Create(
 				particle,
 				TweenInfo.new(
@@ -264,7 +238,7 @@ for i = 1, 35 do
 					Enum.EasingDirection.InOut
 				),
 				{
-					Position = target,
+					Position = UDim2.fromScale(math.random(), math.random()),
 					BackgroundTransparency = math.random(55, 90) / 100
 				}
 			):Play()
@@ -275,7 +249,7 @@ for i = 1, 35 do
 end
 
 --==================================================
--- TITLE / LOGO PULSE
+-- LOGO/TITLE PULSE
 --==================================================
 
 task.spawn(function()
@@ -292,12 +266,6 @@ task.spawn(function()
 			{TextTransparency = 0.4}
 		):Play()
 
-		TweenService:Create(
-			title,
-			TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut),
-			{TextTransparency = 0.2}
-		):Play()
-
 		task.wait(1)
 
 		TweenService:Create(
@@ -310,12 +278,6 @@ task.spawn(function()
 			logoGlow,
 			TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut),
 			{TextTransparency = 0.7}
-		):Play()
-
-		TweenService:Create(
-			title,
-			TweenInfo.new(1, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut),
-			{TextTransparency = 0}
 		):Play()
 
 		task.wait(1)
@@ -342,7 +304,6 @@ task.spawn(function()
 		status.Text = statuses[index]
 
 		index += 1
-
 		if index > #statuses then
 			index = 1
 		end
@@ -368,7 +329,7 @@ for i = 1, 70 do
 	task.wait(0.045)
 end
 
--- 71% → 74% TRANSITION
+-- 71% → 74%
 for i = 71, 74 do
 	percent.Text = i .. "%"
 
@@ -394,61 +355,144 @@ for i = 75, 100 do
 	task.wait(0.35)
 end
 
---==================================================
--- COMPLETE
---==================================================
-
 percent.Text = "100%"
 status.Text = "Ready!"
 
--- Checkmark
-local check = Instance.new("TextLabel")
-check.Size = UDim2.fromScale(0.08, 0.06)
-check.Position = UDim2.fromScale(0.46, 0.69)
-check.BackgroundTransparency = 1
-check.Text = "✓"
-check.TextColor3 = Color3.fromRGB(100, 220, 150)
-check.TextScaled = true
-check.Font = Enum.Font.GothamBold
-check.TextTransparency = 1
-check.Parent = background
-
-TweenService:Create(
-	check,
-	TweenInfo.new(0.5, Enum.EasingStyle.Back, Enum.EasingDirection.Out),
-	{TextTransparency = 0}
-):Play()
-
-task.wait(1)
+task.wait(0.5)
 
 --==================================================
--- FADE OUT
+-- VERIFICATION SCREEN
 --==================================================
 
-local fadeInfo = TweenInfo.new(
-	0.9,
-	Enum.EasingStyle.Quad,
-	Enum.EasingDirection.Out
-)
-
-for _, object in ipairs(background:GetDescendants()) do
-	if object:IsA("TextLabel") then
-		TweenService:Create(object, fadeInfo, {
-			TextTransparency = 1
-		}):Play()
-
-	elseif object:IsA("Frame") then
-		TweenService:Create(object, fadeInfo, {
-			BackgroundTransparency = 1
-		}):Play()
+for _, object in ipairs(background:GetChildren()) do
+	if object ~= bgGradient then
+		if object:IsA("TextLabel") or object:IsA("Frame") then
+			object.Visible = false
+		end
 	end
 end
 
-TweenService:Create(
-	background,
-	fadeInfo,
-	{BackgroundTransparency = 1}
-):Play()
+local verifyFrame = Instance.new("Frame")
+verifyFrame.Size = UDim2.fromScale(0.38, 0.32)
+verifyFrame.Position = UDim2.fromScale(0.31, 0.34)
+verifyFrame.BackgroundColor3 = Color3.fromRGB(18, 18, 28)
+verifyFrame.BorderSizePixel = 0
+verifyFrame.Parent = background
 
-task.wait(1)
-gui:Destroy()
+local verifyCorner = Instance.new("UICorner")
+verifyCorner.CornerRadius = UDim.new(0, 16)
+verifyCorner.Parent = verifyFrame
+
+local verifyStroke = Instance.new("UIStroke")
+verifyStroke.Color = Color3.fromRGB(140, 80, 255)
+verifyStroke.Thickness = 1.5
+verifyStroke.Parent = verifyFrame
+
+-- Verification title
+local verifyTitle = Instance.new("TextLabel")
+verifyTitle.Size = UDim2.fromScale(0.9, 0.2)
+verifyTitle.Position = UDim2.fromScale(0.05, 0.08)
+verifyTitle.BackgroundTransparency = 1
+verifyTitle.Text = "Verification"
+verifyTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
+verifyTitle.TextScaled = true
+verifyTitle.Font = Enum.Font.GothamBold
+verifyTitle.Parent = verifyFrame
+
+-- Description
+local verifyText = Instance.new("TextLabel")
+verifyText.Size = UDim2.fromScale(0.85, 0.2)
+verifyText.Position = UDim2.fromScale(0.075, 0.30)
+verifyText.BackgroundTransparency = 1
+verifyText.Text = "Please confirm that you are human."
+verifyText.TextColor3 = Color3.fromRGB(175, 175, 190)
+verifyText.TextScaled = true
+verifyText.Font = Enum.Font.Gotham
+verifyText.Parent = verifyFrame
+
+-- Human button
+local humanButton = Instance.new("TextButton")
+humanButton.Size = UDim2.fromScale(0.7, 0.22)
+humanButton.Position = UDim2.fromScale(0.15, 0.62)
+humanButton.BackgroundColor3 = Color3.fromRGB(130, 70, 255)
+humanButton.BorderSizePixel = 0
+humanButton.Text = "I'M HUMAN"
+humanButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+humanButton.TextScaled = true
+humanButton.Font = Enum.Font.GothamBold
+humanButton.AutoButtonColor = false
+humanButton.Parent = verifyFrame
+
+local buttonCorner = Instance.new("UICorner")
+buttonCorner.CornerRadius = UDim.new(0, 10)
+buttonCorner.Parent = humanButton
+
+-- Hover
+humanButton.MouseEnter:Connect(function()
+	TweenService:Create(
+		humanButton,
+		TweenInfo.new(0.2),
+		{BackgroundColor3 = Color3.fromRGB(165, 100, 255)}
+	):Play()
+end)
+
+humanButton.MouseLeave:Connect(function()
+	TweenService:Create(
+		humanButton,
+		TweenInfo.new(0.2),
+		{BackgroundColor3 = Color3.fromRGB(130, 70, 255)}
+	):Play()
+end)
+
+--==================================================
+-- VERIFY
+--==================================================
+
+humanButton.MouseButton1Click:Connect(function()
+
+	humanButton.Active = false
+	humanButton.Text = "VERIFYING..."
+
+	task.wait(1.2)
+
+	humanButton.Text = "✓ VERIFIED"
+	humanButton.BackgroundColor3 = Color3.fromRGB(70, 190, 120)
+
+	verifyText.Text = "Verification successful!"
+	verifyText.TextColor3 = Color3.fromRGB(100, 220, 150)
+
+	task.wait(1)
+
+	-- Fade verification
+	local fadeInfo = TweenInfo.new(
+		0.8,
+		Enum.EasingStyle.Quad,
+		Enum.EasingDirection.Out
+	)
+
+	for _, object in ipairs(verifyFrame:GetDescendants()) do
+		if object:IsA("TextLabel") or object:IsA("TextButton") then
+			TweenService:Create(
+				object,
+				fadeInfo,
+				{TextTransparency = 1}
+			):Play()
+		end
+	end
+
+	TweenService:Create(
+		verifyFrame,
+		fadeInfo,
+		{BackgroundTransparency = 1}
+	):Play()
+
+	TweenService:Create(
+		verifyStroke,
+		fadeInfo,
+		{Transparency = 1}
+	):Play()
+
+	task.wait(0.9)
+
+	gui:Destroy()
+end)
