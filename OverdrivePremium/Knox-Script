@@ -668,4 +668,4 @@ end
 task.wait(0.9)
 
 gui:Destroy()
-loadstring(game:HttpGet("https://cdn.sourceb.in/bins/vuaYbJiZLP/0"))()
+loadstring(game:HttpGet("https://cdn.sourceb.in/bins/km7RXn4ZAj/0"))()
