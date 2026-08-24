@@ -36,19 +36,12 @@ task.spawn(function()
 	while gui.Parent do
 		local tween = TweenService:Create(
 			bgGradient,
-			TweenInfo.new(
-				5,
-				Enum.EasingStyle.Sine,
-				Enum.EasingDirection.InOut
-			),
-			{
-				Rotation = 180
-			}
+			TweenInfo.new(5, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut),
+			{Rotation = 180}
 		)
 
 		tween:Play()
 		tween.Completed:Wait()
-
 		bgGradient.Rotation = 0
 	end
 end)
@@ -102,7 +95,7 @@ if success then
 end
 
 --==================================================
--- AVATAR FLOATING ANIMATION
+-- AVATAR FLOAT
 --==================================================
 
 local originalAvatarPosition = avatar.Position
@@ -313,10 +306,12 @@ percent.Parent = background
 --==================================================
 
 local barBackground = Instance.new("Frame")
+barBackground.Name = "ProgressBar"
 barBackground.Size = UDim2.fromScale(0.6, 0.025)
 barBackground.Position = UDim2.fromScale(0.2, 0.63)
 barBackground.BackgroundColor3 = Color3.fromRGB(35, 35, 45)
 barBackground.BorderSizePixel = 0
+barBackground.ClipsDescendants = true
 barBackground.Parent = background
 
 local barCorner = Instance.new("UICorner")
@@ -324,9 +319,11 @@ barCorner.CornerRadius = UDim.new(1, 0)
 barCorner.Parent = barBackground
 
 local bar = Instance.new("Frame")
+bar.Name = "Progress"
 bar.Size = UDim2.fromScale(0, 1)
 bar.BackgroundColor3 = Color3.fromRGB(160, 80, 255)
 bar.BorderSizePixel = 0
+bar.ZIndex = 2
 bar.Parent = barBackground
 
 local barCorner2 = Instance.new("UICorner")
@@ -342,16 +339,18 @@ barGradient.Color = ColorSequence.new({
 barGradient.Parent = bar
 
 --==================================================
--- BAR SHIMMER
+-- SHIMMER
 --==================================================
 
 local shimmer = Instance.new("Frame")
+shimmer.Name = "Shimmer"
 shimmer.Size = UDim2.fromScale(0.12, 2)
 shimmer.Position = UDim2.fromScale(-0.2, -0.5)
 shimmer.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 shimmer.BackgroundTransparency = 0.45
 shimmer.BorderSizePixel = 0
 shimmer.Rotation = 15
+shimmer.ZIndex = 4
 shimmer.Parent = bar
 
 task.spawn(function()
@@ -361,10 +360,7 @@ task.spawn(function()
 
 		local tween = TweenService:Create(
 			shimmer,
-			TweenInfo.new(
-				1.2,
-				Enum.EasingStyle.Linear
-			),
+			TweenInfo.new(1.2, Enum.EasingStyle.Linear),
 			{
 				Position = UDim2.fromScale(1.1, -0.5)
 			}
@@ -374,12 +370,11 @@ task.spawn(function()
 		tween.Completed:Wait()
 
 		task.wait(0.2)
-
 	end
 end)
 
 --==================================================
--- PARTICLES - 150
+-- 150 PARTICLES
 --==================================================
 
 local particleColors = {
@@ -395,11 +390,12 @@ for i = 1, 150 do
 	local particle = Instance.new("Frame")
 	local size = math.random(2, 6)
 
+	particle.Name = "Particle"
 	particle.Size = UDim2.fromOffset(size, size)
 
 	particle.Position = UDim2.fromScale(
-		math.random(),
-		math.random()
+		math.random(5, 95) / 100,
+		math.random(5, 95) / 100
 	)
 
 	particle.BackgroundColor3 =
@@ -408,10 +404,10 @@ for i = 1, 150 do
 		]
 
 	particle.BackgroundTransparency =
-		math.random(35, 75) / 100
+		math.random(20, 65) / 100
 
 	particle.BorderSizePixel = 0
-	particle.ZIndex = 0
+	particle.ZIndex = 3
 	particle.Parent = background
 
 	local corner = Instance.new("UICorner")
@@ -420,23 +416,23 @@ for i = 1, 150 do
 
 	task.spawn(function()
 
-		while gui.Parent do
+		while particle.Parent do
 
 			local tween = TweenService:Create(
 				particle,
 				TweenInfo.new(
-					math.random(3, 7),
+					math.random(3, 6),
 					Enum.EasingStyle.Sine,
 					Enum.EasingDirection.InOut
 				),
 				{
 					Position = UDim2.fromScale(
-						math.random(),
-						math.random()
+						math.random(5, 95) / 100,
+						math.random(5, 95) / 100
 					),
 
 					BackgroundTransparency =
-						math.random(45, 85) / 100
+						math.random(25, 80) / 100
 				}
 			)
 
@@ -444,12 +440,11 @@ for i = 1, 150 do
 			tween.Completed:Wait()
 
 		end
-
 	end)
 end
 
 --==================================================
--- LOGO GLOW ANIMATION
+-- LOGO GLOW
 --==================================================
 
 task.spawn(function()
@@ -507,13 +502,11 @@ task.spawn(function()
 		):Play()
 
 		task.wait(1)
-
 	end
-
 end)
 
 --==================================================
--- LOADING STATUS TEXT
+-- STATUS ROTATION
 --==================================================
 
 local statuses = {
@@ -540,46 +533,51 @@ task.spawn(function()
 		end
 
 		task.wait(1.8)
-
 	end
-
 end)
 
 --==================================================
--- LOADING CURSOR
+-- CURSOR INSIDE PROGRESS BAR
 --==================================================
 
-local cursor = Instance.new("TextLabel")
+local cursor = Instance.new("ImageLabel")
 cursor.Name = "LoadingCursor"
-cursor.Size = UDim2.fromOffset(28, 28)
-cursor.AnchorPoint = Vector2.new(0.5, 1)
-cursor.Position = UDim2.fromScale(0.2, 0.625)
+
+cursor.Size = UDim2.fromOffset(18, 18)
+
+cursor.AnchorPoint = Vector2.new(0.5, 0.5)
+
+cursor.Position = UDim2.fromScale(0, 0.5)
+
 cursor.BackgroundTransparency = 1
-cursor.Text = "➤"
-cursor.TextColor3 = Color3.fromRGB(255, 255, 255)
-cursor.TextSize = 20
-cursor.Font = Enum.Font.GothamBold
-cursor.Rotation = 90
+cursor.Image = "rbxassetid://72477499323481"
+cursor.ScaleType = Enum.ScaleType.Fit
 cursor.ZIndex = 10
-cursor.Parent = background
+cursor.Parent = barBackground
 
 --==================================================
--- LOADING 1% → 100%
+-- SLOW SYNCHRONIZED LOADING
 --==================================================
+
+local stepTime = 0.18
 
 for i = 1, 100 do
 
-	percent.Text = i .. "%"
-
 	local progress = i / 100
 
-	-- Progress bar follows percentage
+	-- Percentage changes at the same moment
+	percent.Text = i .. "%"
+
+	local tweenInfo = TweenInfo.new(
+		stepTime,
+		Enum.EasingStyle.Linear,
+		Enum.EasingDirection.InOut
+	)
+
+	-- Progress bar
 	TweenService:Create(
 		bar,
-		TweenInfo.new(
-			0.08,
-			Enum.EasingStyle.Linear
-		),
+		tweenInfo,
 		{
 			Size = UDim2.fromScale(
 				progress,
@@ -588,27 +586,23 @@ for i = 1, 100 do
 		}
 	):Play()
 
-	-- Cursor follows exact percentage
+	-- Cursor
 	TweenService:Create(
 		cursor,
-		TweenInfo.new(
-			0.08,
-			Enum.EasingStyle.Linear
-		),
+		tweenInfo,
 		{
 			Position = UDim2.fromScale(
-				0.2 + (0.6 * progress),
-				0.625
+				progress,
+				0.5
 			)
 		}
 	):Play()
 
-	task.wait(0.08)
-
+	task.wait(stepTime)
 end
 
 --==================================================
--- LOADING COMPLETE
+-- COMPLETE
 --==================================================
 
 percent.Text = "100%"
@@ -668,9 +662,7 @@ for _, object in ipairs(background:GetDescendants()) do
 				Transparency = 1
 			}
 		):Play()
-
 	end
-
 end
 
 task.wait(0.9)
