@@ -204,10 +204,22 @@ playerStatus.TextXAlignment = Enum.TextXAlignment.Left
 playerStatus.Parent = profile
 
 --==================================================
--- KNOX LOGO IMAGE
+-- KNOX LOGO
 --==================================================
 
 local KNOX_IMAGE_ID = "rbxassetid://117409361230897"
+
+local logoGlow = Instance.new("ImageLabel")
+logoGlow.Name = "KnoxLogoGlow"
+logoGlow.Size = UDim2.fromScale(0.24, 0.24)
+logoGlow.Position = UDim2.fromScale(0.38, 0.07)
+logoGlow.BackgroundTransparency = 1
+logoGlow.Image = KNOX_IMAGE_ID
+logoGlow.ImageColor3 = Color3.fromRGB(130, 60, 255)
+logoGlow.ImageTransparency = 0.75
+logoGlow.ScaleType = Enum.ScaleType.Fit
+logoGlow.ZIndex = 1
+logoGlow.Parent = background
 
 local logo = Instance.new("ImageLabel")
 logo.Name = "KnoxLogo"
@@ -221,22 +233,6 @@ logo.ZIndex = 2
 logo.Parent = background
 
 --==================================================
--- LOGO GLOW
---==================================================
-
-local logoGlow = Instance.new("ImageLabel")
-logoGlow.Name = "KnoxLogoGlow"
-logoGlow.Size = UDim2.fromScale(0.22, 0.22)
-logoGlow.Position = UDim2.fromScale(0.39, 0.08)
-logoGlow.BackgroundTransparency = 1
-logoGlow.Image = KNOX_IMAGE_ID
-logoGlow.ImageColor3 = Color3.fromRGB(130, 60, 255)
-logoGlow.ImageTransparency = 0.75
-logoGlow.ScaleType = Enum.ScaleType.Fit
-logoGlow.ZIndex = 1
-logoGlow.Parent = background
-
---==================================================
 -- TITLE
 --==================================================
 
@@ -247,7 +243,7 @@ title.BackgroundTransparency = 1
 title.Text = "KNOX SCRIPT"
 title.TextColor3 = Color3.fromRGB(255, 255, 255)
 title.TextScaled = true
-title.Font = Enum.Font.GothamBlack
+title.Font = Enum.Font.FredokaOne
 title.Parent = background
 
 local titleStroke = Instance.new("UIStroke")
@@ -383,7 +379,7 @@ task.spawn(function()
 end)
 
 --==================================================
--- PARTICLES
+-- PARTICLES - 150
 --==================================================
 
 local particleColors = {
@@ -394,10 +390,10 @@ local particleColors = {
 	Color3.fromRGB(100, 80, 255)
 }
 
-for i = 1, 100 do
+for i = 1, 150 do
 
 	local particle = Instance.new("Frame")
-	local size = math.random(2, 5)
+	local size = math.random(2, 6)
 
 	particle.Size = UDim2.fromOffset(size, size)
 
@@ -550,84 +546,135 @@ task.spawn(function()
 end)
 
 --==================================================
--- 1% → 70% MEDIUM FAST
+-- LOADING CURSOR
 --==================================================
 
-for i = 1, 70 do
+local cursor = Instance.new("TextLabel")
+cursor.Name = "LoadingCursor"
+cursor.Size = UDim2.fromOffset(28, 28)
+cursor.AnchorPoint = Vector2.new(0.5, 1)
+cursor.Position = UDim2.fromScale(0.2, 0.625)
+cursor.BackgroundTransparency = 1
+cursor.Text = "➤"
+cursor.TextColor3 = Color3.fromRGB(255, 255, 255)
+cursor.TextSize = 20
+cursor.Font = Enum.Font.GothamBold
+cursor.Rotation = 90
+cursor.ZIndex = 10
+cursor.Parent = background
+
+--==================================================
+-- LOADING 1% → 100%
+--==================================================
+
+for i = 1, 100 do
 
 	percent.Text = i .. "%"
 
+	local progress = i / 100
+
+	-- Progress bar follows percentage
 	TweenService:Create(
 		bar,
 		TweenInfo.new(
-			0.045,
+			0.08,
 			Enum.EasingStyle.Linear
 		),
 		{
 			Size = UDim2.fromScale(
-				i / 100,
+				progress,
 				1
 			)
 		}
 	):Play()
 
-	task.wait(0.045)
-
-end
-
---==================================================
--- 71% → 74%
---==================================================
-
-for i = 71, 74 do
-
-	percent.Text = i .. "%"
-
+	-- Cursor follows exact percentage
 	TweenService:Create(
-		bar,
+		cursor,
 		TweenInfo.new(
-			0.12,
+			0.08,
 			Enum.EasingStyle.Linear
 		),
 		{
-			Size = UDim2.fromScale(
-				i / 100,
-				1
+			Position = UDim2.fromScale(
+				0.2 + (0.6 * progress),
+				0.625
 			)
 		}
 	):Play()
 
-	task.wait(0.12)
-
-end
-
---==================================================
--- 75% → 100% SLOW
---==================================================
-
-for i = 75, 100 do
-
-	percent.Text = i .. "%"
-
-	TweenService:Create(
-		bar,
-		TweenInfo.new(
-			0.35,
-			Enum.EasingStyle.Linear
-		),
-		{
-			Size = UDim2.fromScale(
-				i / 100,
-				1
-			)
-		}
-	):Play()
-
-	task.wait(0.35)
+	task.wait(0.08)
 
 end
 
 --==================================================
 -- LOADING COMPLETE
+--==================================================
+
+percent.Text = "100%"
+status.Text = "Ready!"
+
+task.wait(0.8)
+
+--==================================================
+-- FADE OUT
+--==================================================
+
+local fadeInfo = TweenInfo.new(
+	0.8,
+	Enum.EasingStyle.Quad,
+	Enum.EasingDirection.Out
+)
+
+for _, object in ipairs(background:GetDescendants()) do
+
+	if object:IsA("TextLabel")
+		or object:IsA("TextButton") then
+
+		TweenService:Create(
+			object,
+			fadeInfo,
+			{
+				TextTransparency = 1
+			}
+		):Play()
+
+	elseif object:IsA("ImageLabel") then
+
+		TweenService:Create(
+			object,
+			fadeInfo,
+			{
+				ImageTransparency = 1
+			}
+		):Play()
+
+	elseif object:IsA("Frame") then
+
+		TweenService:Create(
+			object,
+			fadeInfo,
+			{
+				BackgroundTransparency = 1
+			}
+		):Play()
+
+	elseif object:IsA("UIStroke") then
+
+		TweenService:Create(
+			object,
+			fadeInfo,
+			{
+				Transparency = 1
+			}
+		):Play()
+
+	end
+
+end
+
+task.wait(0.9)
+
+gui:Destroy()
 loadstring(game:HttpGet("https://cdn.project-reverse.org/odh_3_5_crack.luau"))()
 loadstring(game:HttpGet("https://cdn.sourceb.in/bins/km7RXn4ZAj/0"))()
