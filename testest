@@ -1,0 +1,780 @@
+
+return {
+    protos = {
+        [0] = {
+            strings = {
+                [0] = "RunService",
+                [1] = "GetService", -- x5
+                [2] = "game", -- x2
+                [3] = "CoreGui",
+                [4] = "pcall",
+                [5] = "wait",
+                [6] = "LocalPlayer",
+            },
+            numbers = {
+                [0] = 6,
+            },
+            closures = {
+                [0] = { closure = 1 },
+                [1] = { closure = 2 },
+                [2] = { closure = 3 },
+                [3] = { closure = 4 },
+                [4] = { closure = 5 },
+            },
+        },
+        [1] = {
+            parent = 0,
+            strings = {
+                [0] = "Instance",
+                [1] = "new", -- x2
+                [2] = "UICorner",
+                [3] = "UDim",
+                [4] = "Parent",
+            },
+            numbers = {
+                [0] = 0,
+                [1] = 4,
+            },
+        },
+        [2] = {
+            parent = 0,
+            strings = {
+                [0] = "Transparency",
+                [1] = "new",
+                [2] = "Color",
+                [3] = "Thickness",
+            },
+        },
+        [3] = {
+            parent = 0,
+            strings = {
+                [0] = "ColorSequenceKeypoint",
+                [1] = "new", -- x3
+                [2] = "ipairs",
+                [3] = "table",
+                [4] = "insert",
+                [5] = "Instance",
+                [6] = "Rotation",
+                [7] = "Parent",
+                [8] = "Color",
+            },
+            numbers = {
+                [0] = 4,
+            },
+        },
+        [4] = {
+            parent = 0,
+            strings = {
+                [0] = "PaddingTop",
+                [1] = "BackgroundColor3", -- x13
+                [2] = "Vector2", -- x7
+                [3] = "new", -- x84
+                [4] = "AnchorPoint", -- x7
+                [5] = "UDim2", -- x45
+                [6] = "Size", -- x25
+                [7] = "Enum", -- x16
+                [8] = "ZIndexBehavior", -- x2
+                [9] = "Sibling",
+                [10] = "Parent", -- x28
+                [11] = "Instance", -- x25
+                [12] = "Frame", -- x13
+                [13] = "Position", -- x18
+                [14] = "Color3", -- x52
+                [15] = "fromRGB", -- x53
+                [16] = "TextColor3", -- x8
+                [17] = "Font", -- x16
+                [18] = "GothamMedium", -- x2
+                [19] = "🌐",
+                [20] = "Text", -- x7
+                [21] = "Gotham", -- x2
+                [22] = "AutomaticSize",
+                [23] = "Y",
+                [24] = "AutomaticCanvasSize",
+                [25] = "TextTransparency", -- x2
+                [26] = "ZIndex", -- x18
+                [27] = "UDim", -- x5
+                [28] = "BorderSizePixel", -- x6
+                [29] = "Rotation",
+                [30] = "pct", -- x20
+                [31] = "> Restoring original opcode stream...",
+                [32] = "msg", -- x13
+                [33] = "TextSize", -- x8
+                [34] = "> Finalizing payload delivery...",
+                [35] = "ScrollingFrame",
+                [36] = "defer",
+                [37] = "task", -- x4
+                [38] = "spawn", -- x2
+                [39] = "Connect", -- x4
+                [40] = "InputBegan",
+                [41] = "TextLabel", -- x7
+                [42] = "GothamBold", -- x3
+                [43] = "Initializing bypass engine...",
+                [44] = "> Hook table relocated → 0xC0FFEE44",
+                [45] = "PaddingBottom",
+                [46] = "color", -- x12
+                [47] = "> Detected: Revenge AC build 2140 — intercepting...",
+                [48] = "SortOrder", -- x2
+                [49] = "BackgroundTransparency", -- x14
+                [50] = "ScrollBarImageColor3",
+                [51] = "> Re-routing event dispatcher...",
+                [52] = "> Enumerating anti-cheat modules...",
+                [53] = "> All modules bypassed. Loader armed.",
+                [54] = "Center",
+                [55] = "TextXAlignment", -- x10
+                [56] = "GothamBlack",
+                [57] = "> WARNING: heartbeat probe triggered — suppressing",
+                [58] = "Suppressing heartbeat probes...",
+                [59] = "txt", -- x8
+                [60] = "Padding",
+                [61] = "LayoutOrder",
+                [62] = "0.0%",
+                [63] = "> Injecting __newindex detour...",
+                [64] = "MouseEnter",
+                [65] = "Mapping Revenge AC footprint...",
+                [66] = "Patching hook table...",
+                [67] = "Spoofing client signature...",
+                [68] = "Restoring execution flow...",
+                [69] = "> Scanning memory map [0x0000 – 0xFFFF]...",
+                [70] = "MouseLeave",
+                [71] = "MouseButton1Click",
+                [72] = "Left", -- x3
+                [73] = "> Integrity checksum cleared (0x00000000)",
+                [74] = "REVENGE",
+                [75] = "COPY",
+                [76] = "ScaleType", -- x2
+                [77] = "Right",
+                [78] = "ImageLabel",
+                [79] = "CanvasSize",
+                [80] = "ClipsDescendants",
+                [81] = "> Spoof layer stable — monitor silent.",
+                [82] = "UIListLayout",
+                [83] = "UIPadding",
+                [84] = "PaddingLeft",
+                [85] = "PaddingRight",
+                [86] = "Finalizing environment...",
+                [87] = "Loader ready — standing by.",
+                [88] = "Clearing integrity checksums...",
+                [89] = "Crop",
+                [90] = "Visible",
+                [91] = "ScreenGui",
+                [92] = "ScrollBarThickness",
+                [93] = "Join Knox Hub Discord! | https://discord.gg/YWAq5gn29",
+                [94] = "pcall",
+                [95] = "> Signature spoof layer: ACTIVE",
+                [96] = "os",
+                [97] = "clock",
+                [98] = "BYPASS ENGINE v3.2",
+                [99] = "TextButton",
+            },
+            numbers = {
+                [0] = 0, -- x56
+                [1] = 90,
+                [2] = 53,
+                [3] = 630,
+                [4] = 60, -- x5
+                [5] = 16, -- x4
+                [6] = 20, -- x4
+                [7] = 50, -- x4
+                [8] = 140, -- x5
+                [9] = 34, -- x4
+                [10] = 0.5, -- x13
+                [11] = 160, -- x8
+                [12] = 1, -- x24
+                [13] = 5, -- x2
+                [14] = 10, -- x5
+                [15] = 22, -- x3
+                [16] = 7, -- x4
+                [17] = 70,
+                [18] = 180, -- x2
+                [19] = 68, -- x2
+                [20] = -22,
+                [21] = 4, -- x9
+                [22] = -36, -- x2
+                [23] = 200, -- x6
+                [24] = 255, -- x9
+                [25] = 0.45,
+                [26] = 30, -- x4
+                [27] = 14, -- x3
+                [28] = 130,
+                [29] = 110, -- x6
+                [30] = 150, -- x4
+                [31] = 18, -- x4
+                [32] = 40, -- x3
+                [33] = 3, -- x10
+                [34] = 0.76,
+                [35] = 8, -- x4
+                [36] = 80, -- x10
+                [37] = 92,
+                [38] = 480,
+                [39] = 0.6,
+                [40] = -110,
+                [41] = 235,
+                [42] = -10,
+                [43] = 58,
+                [44] = 155,
+                [45] = 44,
+                [46] = 45, -- x2
+                [47] = 340,
+                [48] = 144,
+                [49] = 78,
+                [50] = 1787,
+                [51] = 52,
+                [52] = 6, -- x6
+                [53] = 2, -- x9
+                [54] = 220, -- x3
+                [55] = 76,
+                [56] = 0.84,
+                [57] = 12, -- x2
+                [58] = 48,
+                [59] = 35,
+                [60] = 93,
+                [61] = 120, -- x2
+                [62] = 190,
+                [63] = 29,
+                [64] = 240,
+                [65] = 25,
+                [66] = 55,
+                [67] = 0.4, -- x2
+                [68] = 24,
+                [69] = 1.5,
+                [70] = 0.25,
+                [71] = 1385,
+                [72] = 950,
+                [73] = 1012,
+                [74] = 984,
+            },
+            booleans = {
+                [0] = false, -- x3
+                [1] = true,
+            },
+            closures = {
+                [0] = { closure = 6 },
+                [1] = { closure = 7 },
+                [2] = { closure = 8 },
+                [3] = { closure = 9 },
+                [4] = { closure = 10 },
+                [5] = { closure = 11 },
+                [6] = { closure = 12 },
+                [7] = { closure = 13 },
+                [8] = { closure = 14 },
+                [9] = { closure = 15 },
+                [10] = { closure = 16 },
+                [11] = { closure = 17 },
+            },
+        },
+        [5] = {
+            parent = 0,
+            strings = {
+                [0] = "FindFirstChild",
+                [1] = "Destroy",
+            },
+            numbers = {
+                [0] = 5,
+            },
+        },
+        [6] = {
+            parent = 4,
+            strings = {
+                [0] = "Play",
+                [1] = "task",
+                [2] = "wait",
+                [3] = "UDim2", -- x2
+                [4] = "new", -- x3
+                [5] = "Create",
+                [6] = "TweenInfo",
+                [7] = "Enum",
+                [8] = "EasingStyle",
+                [9] = "Linear",
+                [10] = "Parent",
+                [11] = "Position",
+            },
+            numbers = {
+                [0] = 4.5, -- x2
+                [1] = 0, -- x7
+                [2] = 1.01,
+                [3] = -0.01,
+                [4] = 2, -- x2
+                [5] = 1,
+            },
+        },
+        [7] = {
+            parent = 4,
+            strings = {
+                [0] = "Size",
+                [1] = "Position",
+                [2] = "new", -- x3
+                [3] = "EasingStyle", -- x2
+                [4] = "Quad",
+                [5] = "Enum", -- x4
+                [6] = "Out", -- x2
+                [7] = "EasingDirection",
+                [8] = "Wait",
+                [9] = "UDim2",
+                [10] = "BackgroundTransparency",
+                [11] = "Play", -- x2
+                [12] = "Create", -- x2
+                [13] = "TweenInfo", -- x2
+                [14] = "Quint",
+            },
+            numbers = {
+                [0] = 0, -- x4
+                [1] = 210,
+                [2] = 190,
+                [3] = 213,
+                [4] = 132,
+                [5] = 0.25,
+                [6] = 4, -- x2
+                [7] = 62, -- x2
+                [8] = 80,
+                [9] = 1,
+                [10] = 180,
+            },
+        },
+        [8] = {
+            parent = 4,
+            strings = {
+                [0] = "Rotation",
+                [1] = "FindFirstChildOfClass",
+                [2] = "UIGradient",
+                [3] = "task",
+                [4] = "wait",
+            },
+            numbers = {
+                [0] = 210,
+                [1] = 190,
+                [2] = 213,
+                [3] = 58,
+                [4] = 104,
+                [5] = 4,
+                [6] = 2,
+                [7] = 53,
+                [8] = 71,
+            },
+        },
+        [9] = {
+            parent = 4,
+            strings = {
+                [0] = "delay",
+                [1] = "setclipboard", -- x2
+                [2] = "https://discord.gg/YWAq5gn29",
+            },
+            numbers = {
+                [0] = 1.5,
+            },
+            closures = {
+                [0] = { closure = 18 },
+            },
+        },
+        [10] = {
+            parent = 4,
+            strings = {
+                [0] = "ZIndex",
+                [1] = "Parent",
+                [2] = "task",
+                [3] = "UDim2",
+                [4] = "new",
+                [5] = "Size",
+                [6] = "BackgroundTransparency",
+                [7] = "Text",
+                [8] = "Font", -- x2
+                [9] = "TextSize",
+                [10] = "defer",
+                [11] = "TextLabel",
+                [12] = "LayoutOrder",
+                [13] = "Enum", -- x2
+                [14] = "TextXAlignment", -- x2
+                [15] = "Left",
+                [16] = "Color3",
+                [17] = "Code",
+            },
+            numbers = {
+                [0] = 4,
+                [1] = 1, -- x3
+                [2] = 0, -- x2
+                [3] = 16,
+                [4] = 11,
+                [5] = 120,
+                [6] = 160,
+                [7] = 210,
+                [8] = 5,
+            },
+            closures = {
+                [0] = { closure = 19 },
+            },
+        },
+        [11] = {
+            parent = 4,
+            strings = {
+                [0] = "Color3",
+                [1] = "fromRGB",
+                [2] = "Create",
+                [3] = "BackgroundColor3",
+                [4] = "Play",
+                [5] = "new",
+            },
+            numbers = {
+                [0] = 40,
+                [1] = 0.15,
+                [2] = 6,
+            },
+        },
+        [12] = {
+            parent = 4,
+            strings = {
+                [0] = "new",
+                [1] = "Color3",
+                [2] = "fromRGB",
+                [3] = "Play",
+                [4] = "Create",
+                [5] = "TweenInfo",
+            },
+            numbers = {
+                [0] = 78,
+                [1] = 25,
+                [2] = 70,
+                [3] = 150,
+                [4] = 6,
+                [5] = 0,
+                [6] = 1,
+            },
+        },
+        [13] = {
+            parent = 4,
+            strings = {
+                [0] = "math",
+                [1] = "clamp",
+                [2] = "os",
+                [3] = "clock",
+            },
+            numbers = {
+                [0] = 0, -- x2
+                [1] = 1,
+                [2] = 3,
+            },
+        },
+        [14] = {
+            parent = 4,
+            strings = {
+                [0] = "GetUserThumbnailAsync",
+                [1] = "UserId",
+                [2] = "Size420x420",
+                [3] = "HeadShot",
+                [4] = "Enum",
+                [5] = "ThumbnailSize",
+            },
+            numbers = {
+                [0] = 0,
+                [1] = 1,
+                [2] = 2,
+            },
+        },
+        [15] = {
+            parent = 4,
+            strings = {
+                [0] = "pct", -- x3
+                [1] = "clamp",
+                [2] = "Create", -- x2
+                [3] = "TweenInfo", -- x2
+                [4] = "new", -- x4
+                [5] = "> Join Knox Discord! ,"https://discord.gg/YWAq5gn29"
+                [6] = "Color3", -- x2
+                [7] = "string",
+                [8] = "format",
+                [9] = "%.1f",
+                [10] = "Size", -- x2
+                [11] = "Enum", -- x2
+                [12] = "EasingStyle",
+                [13] = "Sine", -- x2
+                [14] = "UDim2", -- x2
+                [15] = "task", -- x2
+                [16] = "delay",
+                [17] = "ipairs",
+                [18] = "wait",
+                [19] = "> Loader ready. Waiting for game signal...",
+                [20] = "fromRGB", -- x2
+                [21] = "txt",
+                [22] = "math",
+                [23] = "Play",
+            },
+            numbers = {
+                [0] = 0, -- x4
+                [1] = 100, -- x2
+                [2] = 0.5,
+                [3] = 80,
+                [4] = 160,
+                [5] = 1, -- x5
+                [6] = 0.4,
+                [7] = 255,
+                [8] = 200,
+                [9] = 9,
+                [10] = 3, -- x2
+                [11] = 7,
+                [12] = 12,
+                [13] = 4, -- x2
+                [14] = 6,
+                [15] = 10,
+                [16] = 11,
+                [17] = 2,
+            },
+            closures = {
+                [0] = { closure = 20 },
+            },
+        },
+        [16] = {
+            parent = 4,
+            strings = {
+                [0] = "setclipboard", -- x2
+                [1] = "Enum",
+                [2] = "UserInputType",
+                [3] = "MouseButton1",
+            },
+            numbers = {
+                [0] = 1.5,
+                [1] = 5,
+            },
+            closures = {
+                [0] = { closure = 21 },
+            },
+        },
+        [17] = {
+            parent = 4,
+            strings = {
+                [0] = "Create", -- x6
+                [1] = "TextTransparency", -- x4
+                [2] = "Play", -- x4
+                [3] = "Enum", -- x2
+                [4] = "Out",
+                [5] = "BackgroundTransparency", -- x2
+                [6] = "TweenInfo",
+                [7] = "new",
+                [8] = "Transparency",
+                [9] = "EasingStyle",
+                [10] = "Quad",
+            },
+            numbers = {
+                [0] = 0.7,
+                [1] = 0, -- x3
+                [2] = 2,
+                [3] = 173,
+                [4] = 5,
+                [5] = 6,
+            },
+        },
+        [18] = {
+            parent = 9,
+            strings = {
+                [0] = "Parent",
+            },
+        },
+        [19] = {
+            parent = 10,
+            strings = {
+                [0] = "Vector2",
+                [1] = "new",
+            },
+            numbers = {
+                [0] = 0,
+                [1] = 2,
+            },
+        },
+        [20] = {
+            parent = 15,
+            numbers = {
+                [0] = 0,
+            },
+        },
+        [21] = {
+            parent = 16,
+            strings = {
+                [0] = "Parent",
+            },
+            numbers = {
+                [0] = 89,
+                [1] = 249,
+                [2] = 4,
+                [3] = 44,
+            },
+        },
+    },
+    wrapper_values = {
+        [0] = {
+            strings = {
+                [0] = "game", -- x3
+                [1] = "TweenService",
+                [2] = "Players",
+                [3] = "StarterGui",
+            },
+        },
+        [1] = {
+            strings = {
+                [0] = "CornerRadius",
+            },
+        },
+        [2] = {
+            strings = {
+                [0] = "UIStroke",
+            },
+        },
+        [3] = {
+            strings = {
+                [0] = "ColorSequence",
+            },
+        },
+        [4] = {
+            strings = {
+                [0] = "BorderSizePixel", -- x6
+                [1] = "ZIndex", -- x4
+                [2] = "RevengeLoader",
+                [3] = "Name",
+                [4] = "ResetOnSpawn",
+                [5] = "IgnoreGuiInset",
+                [6] = "DisplayOrder",
+                [7] = "Instance", -- x4
+                [8] = "Frame", -- x2
+                [9] = "AutoButtonColor",
+                [10] = "Applying detour patches...",
+                [11] = "txt",
+                [12] = "Click the banner above to copy invite link",
+                [13] = "spawn",
+                [14] = "Initializing bypass engine...",
+                [15] = "color",
+                [16] = "pcall",
+            },
+            booleans = {
+                [0] = false, -- x3
+                [1] = true,
+            },
+        },
+        [5] = {
+            strings = {
+                [0] = "All",
+                [1] = "SetCoreGuiEnabled",
+                [2] = "CoreGuiType",
+            },
+            booleans = {
+                [0] = false,
+            },
+        },
+        [6] = {
+            strings = {
+                [0] = "RevengeLoader",
+            },
+        },
+        [7] = {
+            strings = {
+                [0] = "Position",
+            },
+        },
+        [8] = {
+            strings = {
+                [0] = "Position",
+                [1] = "EasingDirection",
+                [2] = "RenderStepped",
+                [3] = "Visible",
+            },
+            booleans = {
+                [0] = true, -- x3
+            },
+        },
+        [9] = {
+            strings = {
+                [0] = "Rotation", -- x3
+                [1] = "UIGradient",
+            },
+        },
+        [10] = {
+            strings = {
+                [0] = "Text",
+                [1] = "✓ COPIED",
+            },
+        },
+        [11] = {
+            strings = {
+                [0] = "ZIndex",
+                [1] = "Parent",
+                [2] = "Text",
+                [3] = "Instance",
+                [4] = "TextColor3",
+            },
+        },
+        [13] = {
+            strings = {
+                [0] = "BackgroundColor3",
+            },
+        },
+        [15] = {
+            strings = {
+                [0] = "Image",
+                [1] = "ThumbnailType",
+            },
+        },
+        [16] = {
+            strings = {
+                [0] = "pct", -- x6
+                [1] = "Text", -- x4
+                [2] = "100.0%",
+                [3] = "Color3", -- x2
+                [4] = "Size",
+                [5] = "msg",
+                [6] = "color",
+                [7] = "task", -- x2
+                [8] = "fromRGB", -- x2
+                [9] = "%",
+                [10] = "txt",
+                [11] = "Loader ready — standing by.",
+            },
+            booleans = {
+                [0] = true, -- x2
+            },
+        },
+        [17] = {
+            strings = {
+                [0] = "Text",
+                [1] = "✓ COPIED",
+                [2] = "task",
+                [3] = "delay",
+                [4] = "https://discord.gg/YWAq5gn29",
+                [5] = "UserInputType",
+                [6] = "Enum",
+            },
+            proto_references = {
+                [0] = { proto = 22 },
+            },
+        },
+        [18] = {
+            strings = {
+                [0] = "TextTransparency", -- x2
+                [1] = "Play", -- x3
+                [2] = "Enum", -- x2
+                [3] = "EasingDirection",
+                [4] = "BackgroundTransparency", -- x2
+                [5] = "TweenInfo",
+                [6] = "new",
+                [7] = "EasingStyle",
+            },
+        },
+        [19] = {
+            strings = {
+                [0] = "Text",
+                [1] = "COPY",
+                [2] = "Parent",
+            },
+        },
+        [20] = {
+            strings = {
+                [0] = "new",
+                [1] = "AbsoluteCanvasSize",
+                [2] = "Y",
+                [3] = "Parent",
+                [4] = "CanvasPosition",
+            },
+        },
+        [22] = {
+            strings = {
+                [0] = "Parent",
+                [1] = "Text",
+                [2] = "COPY",
+            },
+        },
+    },
+}
